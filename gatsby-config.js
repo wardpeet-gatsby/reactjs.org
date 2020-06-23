@@ -3,7 +3,6 @@
  *
  * @emails react-core
  */
-
 'use strict';
 
 module.exports = {
@@ -115,7 +114,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({query: {site, allMarkdownRemark}}) => {
-              return allMarkdownRemark.edges.map(edge => {
+              return allMarkdownRemark.edges.map((edge) => {
                 return Object.assign(
                   {},
                   {
@@ -163,7 +162,8 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'React Docs',
-        short_name: 'React', // eg. React [%LANG_CODE%]
+        short_name: 'React',
+        // eg. React [%LANG_CODE%]
         // Translators: please change this and two above options (see https://www.gatsbyjs.org/packages/gatsby-plugin-manifest/#feature-configuration---optional)
         lang: 'en',
         start_url: '/',
@@ -172,6 +172,16 @@ module.exports = {
         display: 'standalone',
         icon: 'static/logo-512x512.png',
         legacy: true,
+      },
+    },
+    'gatsby-plugin-route-dictionary',
+    'gatsby-disable-prefetch',
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+      options: {
+        analyzerMode: 'static',
+        reportFilename: '_bundle.html',
+        openAnalyzer: false,
       },
     },
   ],
